@@ -17,36 +17,47 @@ public partial class AddStudents : System.Web.UI.Page
 
     protected void Insert_Click(object sender, EventArgs e)
     {
-        SqlConnection c = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Omer\\Dropbox\\school\\DepartmentOfEducation\\App_Data\\Students.mdf;Integrated Security=True");
-        SqlCommand cmd = new SqlCommand("INSERT INTO Students (DOB, FirstName, LastName, SchoolID, PhoneNumber, MailAddress) VALUES(@DOB, @FirstName, @LastName, @SchoolID, @PhoneNumber, @MailAddress);", c);
+        int id=0;
+        SqlConnection c = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Omer\\Dropbox\\school\\UpGradeProject\\DepartmentOfEducation\\App_Data\\Students.mdf;Integrated Security=True");
+        SqlCommand cmd = new SqlCommand("INSERT INTO Students (DOB, FirstName, LastName, SchoolID, PhoneNumber, MailAddress) VALUES(@DOB, @FirstName, @LastName, @SchoolID, @PhoneNumber, @MailAddress); SELECT StudentId From Students WHERE StudentId = SCOPE_IDENTITY()", c);
         cmd.Parameters.AddWithValue("FirstName", FirstName.Text);
         cmd.Parameters.AddWithValue("LastName", LastName.Text);
         cmd.Parameters.AddWithValue("PhoneNumber", PhoneNumber.Text);
         cmd.Parameters.AddWithValue("MailAddress", MailAddress.Text);
         cmd.Parameters.AddWithValue("SchoolID", SchoolID.Text);
         cmd.Parameters.AddWithValue("DOB", Convert.ToDateTime(DOB.Text));
-        try{
+        
+        try {
+
             c.Open();
-            cmd.ExecuteNonQuery();
+            id = (int)cmd.ExecuteScalar();
             c.Close();
+            sendit(id);
         }
         catch
         {
             FirstName.Text = "FAILED!!!";
         }
 
+
     }
-    public void sendit(object sender ,EventArgs e)
+
+    
+    public void sendit(int id)
     {
         string ReciverMail;
-        SqlConnection c = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Omer\\Dropbox\\school\\DepartmentOfEducation\\App_Data\\Students.mdf;Integrated Security=True");
+        SqlConnection c = new SqlConnection("Data Source=(LocalDB)\\MSSQLLocalDB;AttachDbFilename=C:\\Users\\Omer\\Dropbox\\school\\UpGradeProject\\DepartmentOfEducation\\App_Data\\Students.mdf;Integrated Security=True");
         SqlCommand cmd = new SqlCommand("SELECT MailAddress FROM Students Where StudentId = @ID", c);
+        cmd.Parameters.AddWithValue("ID", id);
+        c.Open();
+        cmd.ExecuteNonQuery();
+        c.Close();
         try
         {
             c.Open();
             ReciverMail = (string)cmd.ExecuteScalar();
             c.Close();
-            Response.Redirect("http://www.google.com");
+            //Response.Redirect("http://www.google.com");
         }
         catch
         {
@@ -55,16 +66,15 @@ public partial class AddStudents : System.Web.UI.Page
         }
 
 
-        cmd.Parameters.AddWithValue("ID", IdTextBox.Text);
         MailMessage msg = new MailMessage();
-        msg.From = new MailAddress("Sup.UpGrade@gmail.com");
+        msg.From = new MailAddress("Support@UpGrade.com");
         if (ReciverMail == "No mail Detected")
             Response.Redirect("http://NOMAILDETECTED.com");
         else
         {
             msg.To.Add(ReciverMail);
             msg.Subject = "SignUpInfo";
-            msg.Body = "Hello, welcome to your Account info,\nYour ID is "+IdTextBox.Text+" and your temporary password is also "+IdTextBox.Text+ ".\n Your account type is Student so make sure you select it at login page.";
+            msg.Body = "Hello, welcome to your Account info,\nYour ID is "+id+" and your temporary password is also "+id+ ".\n Your account type is Student so make sure you select it at login page.";
             SmtpClient client = new SmtpClient();
             client.UseDefaultCredentials = true;
             client.Host = "smtp.gmail.com";

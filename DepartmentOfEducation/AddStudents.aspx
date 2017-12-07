@@ -16,9 +16,6 @@
             <asp:TextBox placeholder="PhoneNumber" ID="PhoneNumber" runat="server"></asp:TextBox>
             <asp:TextBox placeholder="Mail Address" ID="MailAddress" runat="server"></asp:TextBox>
             <asp:Button ID="Insert" runat="server" Text="Button" OnClick="Insert_Click"/>
-
-            <asp:TextBox placeholder="EnterID" ID="IdTextBox" runat="server"></asp:TextBox>
-            <asp:Button ID="sendMail" runat="server" Text="sendmail" OnClick="sendit" />
         </div>
     </form>
 </body>
