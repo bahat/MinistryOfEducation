@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2006
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DepartmentOfEducation", "..\..\..\Dropbox\school\UpGradeProject\DepartmentOfEducation\", "{FE8B70ED-1249-478A-BC0A-0098ACF1D0B5}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DepartmentOfEducation", "DepartmentOfEducation\", "{FE8B70ED-1249-478A-BC0A-0098ACF1D0B5}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51145"
@@ -24,7 +24,7 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "DepartmentOfEducation", "..
 		SlnRelativePath = "..\..\..\Dropbox\school\UpGradeProject\DepartmentOfEducation\"
 	EndProjectSection
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UpGrade", "..\..\..\Dropbox\school\UpGradeProject\UpGrade\", "{83E50299-691C-4F46-9CE9-9B6EA0BC8F75}"
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UpGrade", "UpGrade\", "{83E50299-691C-4F46-9CE9-9B6EA0BC8F75}"
 	ProjectSection(WebsiteProperties) = preProject
 		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
 		Debug.AspNetCompiler.VirtualPath = "/localhost_51153"
@@ -45,6 +45,27 @@ Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "UpGrade", "..\..\..\Dropbox
 		SlnRelativePath = "..\..\..\Dropbox\school\UpGradeProject\UpGrade\"
 	EndProjectSection
 EndProject
+Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "MessageSystem", "MessageSystem\", "{A36D5745-3D8E-4F83-A19A-0D7291D468ED}"
+	ProjectSection(WebsiteProperties) = preProject
+		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.6.1"
+		Debug.AspNetCompiler.VirtualPath = "/localhost_52919"
+		Debug.AspNetCompiler.PhysicalPath = "MessageSystem\"
+		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52919\"
+		Debug.AspNetCompiler.Updateable = "true"
+		Debug.AspNetCompiler.ForceOverwrite = "true"
+		Debug.AspNetCompiler.FixedNames = "false"
+		Debug.AspNetCompiler.Debug = "True"
+		Release.AspNetCompiler.VirtualPath = "/localhost_52919"
+		Release.AspNetCompiler.PhysicalPath = "MessageSystem\"
+		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_52919\"
+		Release.AspNetCompiler.Updateable = "true"
+		Release.AspNetCompiler.ForceOverwrite = "true"
+		Release.AspNetCompiler.FixedNames = "false"
+		Release.AspNetCompiler.Debug = "False"
+		VWDPort = "52919"
+		DefaultWebSiteLanguage = "Visual C#"
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,6 +75,8 @@ Global
 		{FE8B70ED-1249-478A-BC0A-0098ACF1D0B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{83E50299-691C-4F46-9CE9-9B6EA0BC8F75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{83E50299-691C-4F46-9CE9-9B6EA0BC8F75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36D5745-3D8E-4F83-A19A-0D7291D468ED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36D5745-3D8E-4F83-A19A-0D7291D468ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
